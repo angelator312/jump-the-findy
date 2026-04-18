@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 6
 
 const SENSITIVITY = 0.005
 @onready var camera: Camera3D = $Pivot/Pivot2/Camera3D

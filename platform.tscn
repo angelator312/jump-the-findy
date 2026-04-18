@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://df24o7u3aqhnh"]
+
+[ext_resource type="Script" uid="uid://bdx0d76wj6dp4" path="res://platform.gd" id="1_mi635"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5ajho"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mi635"]
+points = PackedVector3Array(-0.5, -0.1, -0.5, -0.5, 0.1, -0.5, 0.5, -0.1, -0.5, -0.5, -0.1, 0.5, -0.5, 0.1, 0.5, 0.5, 0.1, -0.5, 0.5, -0.1, 0.5, 0.5, 0.1, 0.5)
+
+[node name="Platform" type="StaticBody3D" unique_id=907090141]
+script = ExtResource("1_mi635")
+
+[node name="M" type="MeshInstance3D" parent="." unique_id=1341745369]
+mesh = SubResource("BoxMesh_5ajho")
+
+[node name="C" type="CollisionShape3D" parent="." unique_id=483734344]
+shape = SubResource("ConvexPolygonShape3D_mi635")

@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 6
-
+const START_POS=Vector3(0,1,0)
 const SENSITIVITY = 0.005
 @onready var camera: Camera3D = $Pivot/Pivot2/Camera3D
 
@@ -21,7 +21,12 @@ func _input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	if event.is_action("restart") && event.is_pressed():
+		PlatformManger.generate()
+		global_position=START_POS
+	if event.is_action("soft_restart") && event.is_pressed():
+		global_position=START_POS
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

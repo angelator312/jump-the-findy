@@ -2,6 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://da2xfkxful442" path="res://player.tscn" id="1_37kl0"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37kl0"]
+sky_top_color = Color(0.15182108, 0.7959854, 0.7087005, 1)
+sky_horizon_color = Color(0.775991, 0.92928207, 0.89846087, 1)
+ground_horizon_color = Color(0.775991, 0.92928207, 0.89846087, 1)
+
+[sub_resource type="Sky" id="Sky_8uh7m"]
+sky_material = SubResource("ProceduralSkyMaterial_37kl0")
+
+[sub_resource type="Environment" id="Environment_6uqi0"]
+background_mode = 2
+sky = SubResource("Sky_8uh7m")
+tonemap_mode = 2
+glow_enabled = true
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_6uqi0"]
 size = Vector2(20, 20)
 
@@ -9,6 +23,9 @@ size = Vector2(20, 20)
 points = PackedVector3Array(-10, 0, -10, -10, 0, 10, 10, 0, -10, 10, 0, 10)
 
 [node name="Node3D" type="Node3D" unique_id=1062988748]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1339944835]
+environment = SubResource("Environment_6uqi0")
 
 [node name="CharacterBody3D" parent="." unique_id=1073248438 instance=ExtResource("1_37kl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

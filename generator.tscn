@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cmto3oob4aono"]
+
+[ext_resource type="Script" uid="uid://b5pl18ir5fsmx" path="res://generator.gd" id="1_yybav"]
+
+[node name="Generator" type="StaticBody3D" unique_id=801971672]
+script = ExtResource("1_yybav")

@@ -45,7 +45,7 @@ class PlatformPos:
 	
 	
 	
-var start_platform = PlatformPos.new(Vector3(0,0,0), 20, 20)
+var start_platform = PlatformPos.new(Vector3(0,0,0), 3, 3)
 
 func can_jump_to_platform(position: Vector3, platform: PlatformPos) -> bool:
 	return true
@@ -58,6 +58,11 @@ func can_jump_to_platform(position: Vector3, platform: PlatformPos) -> bool:
 	
 
 func _ready() -> void:
+	generate()
+
+func generate()-> void:
+	for e in get_children():
+		self.remove_child(e)
 	var current: PlatformPos = start_platform
 	var num_platforms = 10
 	var current_platforms = 0
@@ -95,6 +100,6 @@ const PlatformScene=preload("res://platform.tscn")
 
 func instantiate(pp :PlatformPos)->void:
 	var node:StaticBody3D=PlatformScene.instantiate()
-	get_tree().current_scene.add_child(node)
+	self.add_child(node)
 	node.global_position=pp.pos
 	node.scale = Vector3(pp.x_size, PLATFORM_THICKNESS , pp.y_size)
